@@ -1,0 +1,301 @@
+:root{
+    --text-color: black;
+    --border-color: black;
+    --highlight-color: #016702;
+    --button-background-inactive: black;
+    --button-background: darkgreen;
+    --button-text: white;
+    --background-text: white;
+}
+
+.container{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+.page-padding{
+    width: 70%;
+    display: inline-grid;
+    column-gap: 5em;
+    grid-template-rows: auto;
+}
+
+header{
+    grid-column: 1 / span 4;
+    grid-row: 1/ span 1;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    background-color: darkgreen;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 800;
+    color: var(--text-color);
+}
+
+header img {
+    width: 6em;
+    height: 6em;
+}
+
+a {
+    text-decoration: none;
+}
+
+nav {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+}
+
+nav ul {
+    display: flex;
+    background: darkgreen;
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+}
+
+nav li {
+    background-size: 200%;
+    color: #fff;
+    /*background: darkgreen;*/
+    display: block;
+    padding: 1rem;
+    position: relative;
+    text-decoration: none;
+    transition-duration: 0.5s;
+}
+
+nav li a {
+    color: #fff;
+}
+
+nav li:hover,
+nav li:focus-within {
+    /*background: green;*/
+    cursor: pointer;
+    background-position: right;
+}
+
+nav li:focus-within a {
+    outline: none;
+}
+
+nav ul li ul {
+    visibility: hidden;
+    opacity: 0;
+    min-width: 5rem;
+    position: absolute;
+    transition: all 0.5s ease;
+    margin-top: 1rem;
+    left: 0;
+    display: none;
+}
+
+nav ul li:hover > ul,
+nav ul li:focus-within > ul,
+nav ul li ul:hover,
+nav ul li ul:focus {
+    visibility: visible;
+    opacity: 1;
+    display: block
+}
+
+nav ul li ul li {
+    width: 100%;
+}
+
+.btn-par{
+    /*background-image: linear-gradient(to left,darkgreen,green,darkgreen);*/
+    background-image: linear-gradient(to left,green,darkgreen,green);
+}
+
+.btn-impar{
+    background-image: linear-gradient(to left,darkgreen,green,darkgreen);
+}
+
+#img-container{
+    grid-column: 1 / span 4;
+    grid-row: 2 / span 1;
+    height: 30vw;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    padding-top: 10vw;
+}
+
+#poza-prezentare{
+    object-fit: contain;
+    width: 100%;
+}
+
+.content{
+    grid-column: 1 / span 4;
+    grid-row: 3 / span 1;
+    display: grid;
+    column-gap: 5em;
+    row-gap: 5em;
+    justify-content: center;
+    align-content: center;
+}
+
+.about-us{
+    grid-column: 1 / span 4;
+    grid-row: 1 / span 1;
+    padding-top: 3em;
+    width: 100%;
+    text-align: center;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    /*padding-bottom: 5em;*/
+}
+
+.about-videos{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+}
+
+.social-media img{
+    height: 2.5em;
+}
+
+#calendar{
+    grid-column: 1 / span 1;
+    grid-row: 2 / span 1;
+    width: 100%;
+}
+
+table{
+    grid-column: 2 / span 2;
+    grid-row: 2 / span 1;
+    width: 100%;
+}
+
+table,
+td {
+    text-align: center;
+    border: 1px solid #333;
+}
+
+thead,
+tfoot {
+    background-color: #333;
+    color: #fff;
+}
+
+#anunturi{
+    grid-column: 4 / span 1;
+    grid-row: 2 / span 1;
+    width: 100%;
+}
+
+#faq-section{
+    grid-column: 1 / span 4;
+    grid-row: 3 / span 1;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    /*padding-top: 5em;*/
+    text-align: left;
+    /*padding-bottom: 5em;*/
+}
+
+.server-status{
+    grid-row: 4 / span 1;
+    grid-column: 1 / span 2;
+    background-color: aqua;
+    height: 3em;
+}
+
+.users-online{
+    grid-row: 4 / span 1;
+    grid-column: 3 / span 1;
+    background-color: palevioletred;
+    height: 3em;
+}
+
+.user-data{
+    grid-row: 4 / span 1;
+    grid-column: 4 / span 1;
+    background-color: chocolate;
+    height: 3em;
+}
+
+footer{
+    grid-row: 5 / span 1;
+    padding-top: 5em;
+    text-align: center;
+    grid-column: 2 / span 2;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+}
+
+/*header{*/
+/*    display: block;*/
+/*}*/
+
+/*a {*/
+/*    text-decoration: none;*/
+/*}*/
+
+/*nav {*/
+/*    font-family: monospace;*/
+/*    background: orange;*/
+/*    width: 100%;*/
+/*}*/
+
+/*ul {*/
+/*    background: darkorange;*/
+/*    list-style: none;*/
+/*    margin: 0;*/
+/*    padding-left: 0;*/
+/*}*/
+
+/*li {*/
+/*    color: #fff;*/
+/*    background: darkorange;*/
+/*    display: block;*/
+/*    float: left;*/
+/*    padding: 1rem;*/
+/*    position: relative;*/
+/*    text-decoration: none;*/
+/*    transition-duration: 0.5s;*/
+/*}*/
+
+/*li a {*/
+/*    color: #fff;*/
+/*}*/
+
+/*li:hover {*/
+/*    background: red;*/
+/*    cursor: pointer;*/
+/*}*/
+
+/*ul li ul {*/
+/*    background: orange;*/
+/*    visibility: hidden;*/
+/*    opacity: 0;*/
+/*    min-width: 5rem;*/
+/*    position: absolute;*/
+/*    transition: all 0.5s ease;*/
+/*    margin-top: 1rem;*/
+/*    left: 0;*/
+/*    display: none;*/
+/*}*/
+
+/*ul li:hover > ul,*/
+/*ul li ul:hover {*/
+/*    visibility: visible;*/
+/*    opacity: 1;*/
+/*    display: block;*/
+/*}*/
+
+/*ul li ul li {*/
+/*    clear: both;*/
+/*    width: 100%;*/
+/*}*/
