@@ -54,6 +54,8 @@
     display: flex;
     align-content: center;
     justify-content: center;
+    background-color: #ffffff;
+    color: #000000;
 }
 
 .page-padding {
@@ -65,9 +67,62 @@
                         "zona2 zona2 zona2 zona2"
                         "zona2 zona2 zona2 zona2"
                         "zona7 zona7 zona5 zona6"
+                        "iframe iframe iframe iframe"
                         "footer footer footer footer";
     column-gap: 5vw;
+    row-gap: 5vh;
     grid-template-rows: auto;
+}
+
+.link-top{
+    display: block;
+    content: '';
+    position: fixed;
+    height: 60px;
+    width: 60px;
+    bottom: 40px;
+    right: 50px;
+}
+
+.patrat{
+    content: '';
+    height: 50px;
+    width: 50px;
+    transform: rotate(45deg);
+    background-color: darkgreen;
+
+    border-style: solid;
+    border-width: 2px;
+    border-color: white;
+
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 0.5;
+}
+
+.sageata{
+    transform: rotate(-45deg);
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-bottom: 40px solid white;
+    border-radius: 50%;
+    opacity: 0.5;
+}
+
+.patrat:hover .sageata{
+    border-bottom: 40px solid darkgreen;
+    opacity: 1;
+}
+
+.patrat:hover{
+    opacity: 1;
+    border-color: darkgreen;
+    background-color: white;
 }
 
 header {
@@ -94,6 +149,7 @@ header img {
 
 a {
     text-decoration: none;
+    color: darkgreen;
 }
 
 nav {
@@ -104,6 +160,7 @@ nav {
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    padding-left: 1em;
 }
 
 nav ul {
@@ -198,15 +255,15 @@ nav li {
     grid-template-areas: "zona11 zona11 zona11 zona11"
                         "zona3 zona22 zona22 zona4"
                         "zona8 zona8 zona8 zona8";
-    column-gap: 5vw;
-    row-gap: 5vh;
+    column-gap: 8vw;
+    row-gap: 8vh;
     justify-content: center;
     align-content: center;
 }
 
 .about-us {
     grid-area: zona11;
-    padding-top: 3em;
+    /*padding-top: 3em;*/
     width: 100%;
     text-align: center;
     font-family: "Montserrat", sans-serif;
@@ -279,6 +336,50 @@ tfoot {
     height: 3em;
 }
 
+.iframe-container{
+    grid-area: iframe;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+.iframe-container iframe{
+    border-color: darkgreen;
+    border-style: solid;
+    width: 40vw;
+    height: 20vw;
+}
+
+.iframe-tabs{
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    display: flex;
+}
+
+/*.iframe-tabs:after{*/
+/*    content: "";*/
+/*    position: relative;*/
+/*    height: 3rem;*/
+/*    width: 5rem;*/
+/*    background-color: darkgreen;*/
+/*    clip-path: polygon(0 0, 15% 15%, 85% 15%, 100% 0);*/
+/*}*/
+
+.iframe-tabs a{
+
+    border-top: 0.4em solid darkgreen;
+    border-left: 0.4em solid transparent;
+    border-right: 0.4em solid transparent;
+    right: 0;
+    color: darkgreen;
+    box-shadow: 0 0 0.8em darkgreen inset;
+    border-bottom-left-radius: 1em;
+    border-bottom-right-radius: 1em;
+    padding: 0.5em;
+
+
+}
+
 footer {
     grid-area: footer;
     padding-top: 5em;
@@ -287,68 +388,3 @@ footer {
     font-family: "Montserrat", sans-serif;
     font-weight: 500;
 }
-
-/*header{*/
-/*    display: block;*/
-/*}*/
-
-/*a {*/
-/*    text-decoration: none;*/
-/*}*/
-
-/*nav {*/
-/*    font-family: monospace;*/
-/*    background: orange;*/
-/*    width: 100%;*/
-/*}*/
-
-/*ul {*/
-/*    background: darkorange;*/
-/*    list-style: none;*/
-/*    margin: 0;*/
-/*    padding-left: 0;*/
-/*}*/
-
-/*li {*/
-/*    color: #fff;*/
-/*    background: darkorange;*/
-/*    display: block;*/
-/*    float: left;*/
-/*    padding: 1rem;*/
-/*    position: relative;*/
-/*    text-decoration: none;*/
-/*    transition-duration: 0.5s;*/
-/*}*/
-
-/*li a {*/
-/*    color: #fff;*/
-/*}*/
-
-/*li:hover {*/
-/*    background: red;*/
-/*    cursor: pointer;*/
-/*}*/
-
-/*ul li ul {*/
-/*    background: orange;*/
-/*    visibility: hidden;*/
-/*    opacity: 0;*/
-/*    min-width: 5rem;*/
-/*    position: absolute;*/
-/*    transition: all 0.5s ease;*/
-/*    margin-top: 1rem;*/
-/*    left: 0;*/
-/*    display: none;*/
-/*}*/
-
-/*ul li:hover > ul,*/
-/*ul li ul:hover {*/
-/*    visibility: visible;*/
-/*    opacity: 1;*/
-/*    display: block;*/
-/*}*/
-
-/*ul li ul li {*/
-/*    clear: both;*/
-/*    width: 100%;*/
-/*}*/
