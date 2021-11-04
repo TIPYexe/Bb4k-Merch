@@ -11,6 +11,7 @@
 
     <link rel="shortcut icon" href="media/favicon.ico" type="image/x-icon"/>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="header-responsive.css">
 
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;800&display=swap" rel="stylesheet">
 </head>
@@ -18,10 +19,14 @@
 <body>
 <div class="container">
     <div class="page-padding">
-        <header>
+        <header class="header">
             <img src="media/LOGO_Original_4.png" alt="Bb4k-logo">
             <nav>
-                <ul>
+<!--                <div>-->
+                    <input class="menu-btn" type="checkbox" id="menu-btn"/>
+                    <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
+<!--                </div>-->
+                <ul class="menu">
                     <li class="btn-impar"><a href="">Acasa</a></li>
                     <li class="btn-par"><a href="">Produse</a>
                         <ul class="dropdown">
@@ -34,6 +39,7 @@
                     <li class="btn-impar"><a href="">Despre noi</a></li>
                     <li class="btn-par"><a href="">Intrebari frecvente</a></li>
                 </ul>
+
             </nav>
         </header>
 
@@ -83,9 +89,9 @@
                                 data-instgrm-permalink="https://www.instagram.com/p/CVqgACZhPws/">
                     </blockquote>
 
-                    <!--                    <blockquote class="instagram-media"-->
-                    <!--                                data-instgrm-permalink="https://www.instagram.com/p/B3fH4H1hnRN/">-->
-                    <!--                    </blockquote>-->
+                    <blockquote class="instagram-media"
+                                data-instgrm-permalink="https://www.instagram.com/p/B3fH4H1hnRN/">
+                    </blockquote>
                     <script async src="//www.instagram.com/embed.js"></script>
                 </div>
 
