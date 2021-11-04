@@ -55,7 +55,7 @@ Proiectul meu pentru optionalul de TehniciWeb.
 # Etapa 2
 
 ##Alegerea culorilor
-   army-green : este un must-have deoarece culoarea pet-urilor de bere ciucas este verde
+   darkgreen : este un must-have deoarece culoarea pet-urilor de bere ciucas este verde
    alb + negru : pentru mentinerea unui stil minimalist si elegant
    
    Bonus: acestea au fost si culorile de pe primul merch ever. Tricourile erau negre, sigla a fost 

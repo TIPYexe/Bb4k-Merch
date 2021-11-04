@@ -38,12 +38,8 @@
 
 :root {
     --text-color: black;
-    --border-color: black;
-    --highlight-color: #016702;
-    --button-background-inactive: black;
-    --button-background: darkgreen;
-    --button-text: white;
-    --background-text: white;
+    --secondary-color: darkgreen;
+    --light-theme-primary-color: white;
 }
 
 .container {
@@ -54,8 +50,8 @@
     display: flex;
     align-content: center;
     justify-content: center;
-    background-color: #ffffff;
-    color: #000000;
+    background-color: var(--light-theme-primary-color);
+    color: var(--text-color);
 }
 
 .page-padding {
@@ -89,11 +85,11 @@
     height: 50px;
     width: 50px;
     transform: rotate(45deg);
-    background-color: darkgreen;
+    background-color: var(--secondary-color);
 
     border-style: solid;
     border-width: 2px;
-    border-color: white;
+    border-color: var(--light-theme-primary-color);
 
     display: flex;
     align-content: center;
@@ -109,20 +105,20 @@
     height: 0;
     border-left: 15px solid transparent;
     border-right: 15px solid transparent;
-    border-bottom: 40px solid white;
+    border-bottom: 40px solid var(--light-theme-primary-color);
     border-radius: 50%;
     opacity: 0.5;
 }
 
 .patrat:hover .sageata{
-    border-bottom: 40px solid darkgreen;
+    border-bottom: 40px solid var(--secondary-color);
     opacity: 1;
 }
 
 .patrat:hover{
     opacity: 1;
-    border-color: darkgreen;
-    background-color: white;
+    border-color: var(--secondary-color);
+    background-color: var(--light-theme-primary-color);
 }
 
 header {
@@ -130,7 +126,7 @@ header {
     display: flex;
     justify-content: left;
     align-items: center;
-    background-color: darkgreen;
+    background-color: var(--secondary-color);
     font-family: "Montserrat", sans-serif;
     font-weight: 800;
     color: var(--text-color);
@@ -149,7 +145,7 @@ header img {
 
 a {
     text-decoration: none;
-    color: darkgreen;
+    color: var(--secondary-color);
 }
 
 nav {
@@ -165,7 +161,7 @@ nav {
 
 nav ul {
     display: flex;
-    background: darkgreen;
+    background: var(--secondary-color);
     list-style: none;
     margin: 0;
     padding-left: 0;
@@ -174,7 +170,7 @@ nav ul {
 
 nav li {
     color: #fff;
-    /*background: darkgreen;*/
+    /*background: var(--secondary-color);*/
     display: block;
     padding: 1rem;
     position: relative;
@@ -224,13 +220,13 @@ nav li {
 }
 
 .btn-par {
-    background-image: linear-gradient(to left, darkgreen, green, darkgreen, green, darkgreen);
-    /*background-image: linear-gradient(to left,green,darkgreen,green);*/
+    background-image: linear-gradient(to left, var(--secondary-color), green, var(--secondary-color), green, var(--secondary-color));
+    /*background-image: linear-gradient(to left,green,var(--secondary-color),green);*/
 }
 
 .btn-impar {
-    background-image: linear-gradient(to left, darkgreen, green, darkgreen, green, darkgreen);
-    /*background-image: linear-gradient(to left,darkgreen,green,darkgreen);*/
+    background-image: linear-gradient(to left, var(--secondary-color), green, var(--secondary-color), green, var(--secondary-color));
+    /*background-image: linear-gradient(to left,var(--secondary-color),green,var(--secondary-color));*/
 }
 
 #img-container {
@@ -344,7 +340,7 @@ tfoot {
 }
 
 .iframe-container iframe{
-    border-color: darkgreen;
+    border-color: var(--secondary-color);
     border-style: solid;
     width: 40vw;
     height: 20vw;
@@ -361,18 +357,18 @@ tfoot {
 /*    position: relative;*/
 /*    height: 3rem;*/
 /*    width: 5rem;*/
-/*    background-color: darkgreen;*/
+/*    background-color: var(--secondary-color);*/
 /*    clip-path: polygon(0 0, 15% 15%, 85% 15%, 100% 0);*/
 /*}*/
 
 .iframe-tabs a{
 
-    border-top: 0.4em solid darkgreen;
+    border-top: 0.4em solid var(--secondary-color);
     border-left: 0.4em solid transparent;
     border-right: 0.4em solid transparent;
     right: 0;
-    color: darkgreen;
-    box-shadow: 0 0 0.8em darkgreen inset;
+    color: var(--secondary-color);
+    box-shadow: 0 0 0.8em var(--secondary-color) inset;
     border-bottom-left-radius: 1em;
     border-bottom-right-radius: 1em;
     padding: 0.5em;

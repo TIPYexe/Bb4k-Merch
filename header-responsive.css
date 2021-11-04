@@ -17,7 +17,7 @@
 }
 
 .menu-icon .navicon {
-    background: white;
+    background: var(--light-theme-primary-color);
     display: block;
     height: 2px;
     position: relative;
@@ -27,7 +27,7 @@
 
 .menu-icon .navicon:before,
 .menu-icon .navicon:after {
-    background: white;
+    background: var(--light-theme-primary-color);
     content: '';
     display: block;
     height: 100%;
