@@ -92,6 +92,19 @@
         visibility: hidden;
         opacity: 0;
         right: 34%;
+        /*width: 100%;*/
+        position: absolute;
+        top: 6rem;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 400px) {
+    .menu{
+        visibility: hidden;
+        opacity: 0;
+        right: 0;
+        width: 100%;
         position: absolute;
         top: 6rem;
         flex-direction: column;

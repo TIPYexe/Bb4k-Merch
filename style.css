@@ -9,6 +9,12 @@
     }
 }
 
+@media (min-width: 60em){
+    nav ul li ul {
+        position: absolute;
+    }
+}
+
 @media (max-width: 60em) {
     #poza-prezentare{
         margin-top: -20em;
@@ -18,6 +24,15 @@
         opacity: 0;
         position: absolute;
         user-select: none;
+    }
+    nav ul li ul {
+        top: 0;
+        margin-left: -1rem;
+        width: 100%;
+        display: none;
+    }
+    nav ul li ul a{
+        padding-left: 2rem;
     }
 }
 
@@ -97,7 +112,7 @@ nav ul {
     list-style: none;
     margin: 0;
     padding-left: 0;
-    overflow: hidden;
+    /*overflow: hidden;*/
 }
 
 nav li {
@@ -128,9 +143,7 @@ nav li:focus-within a {
 nav ul li ul {
     visibility: hidden;
     opacity: 0;
-    /*min-width: 5rem;*/
-    position: absolute;
-    transition: all 0.5s ease;
+    min-width: 5rem;
     margin-top: 1rem;
     left: 0;
     display: none;
@@ -142,7 +155,7 @@ nav ul li ul:hover,
 nav ul li ul:focus {
     visibility: visible;
     opacity: 1;
-    display: block
+    display: block;
 }
 
 nav ul li ul li {
