@@ -33,7 +33,6 @@ app.get("/*", function(req, res){
             res.status(404).render("pages/404");
         } else {
             console.log(renderResult);
-            console.log(req.ip);
             res.send(renderResult);
         }
     })
