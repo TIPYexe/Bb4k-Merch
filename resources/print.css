@@ -1,0 +1,31 @@
+@page:nth(even) {
+    margin-left: 0.5cm;
+    margin-right: 2.5cm;
+}
+
+@page:nth(odd) {
+    margin-left: 2.5cm;
+    margin-right: 0.5cm;
+}
+
+@media print {
+
+    blockquote, ul {
+        page-break-before: always;
+        /*page-break-inside: avoid;*/
+    }
+
+    nav {
+        border-color: black;
+        border-style: dotted;
+    }
+
+    img, video, .iframe-container, .instagram-media, .link-top {
+        display: none;
+    }
+
+    a{
+        color: var(--text-color);
+    }
+}
+

@@ -5,6 +5,7 @@
                         "zona2 zona2 zona2 zona2"
                         "zona2 zona2 zona2 zona2"
                         "zona2 zona2 zona2 zona2"
+                        "zona2 zona2 zona2 zona2"
                         "zona7 zona7 zona5 zona6"
                         "iframe iframe iframe iframe"
                         "footer footer footer footer";
@@ -21,6 +22,7 @@
     .page-padding {
         grid-template-areas: "header header header header"
                         "zona1 zona1 zona1 zona1"
+                        "zona2 zona2 zona2 zona2"
                         "zona2 zona2 zona2 zona2"
                         "zona2 zona2 zona2 zona2"
                         "zona7 zona7 zona7 zona7"
@@ -321,6 +323,7 @@ nav li {
     row-gap: 8vh;
     justify-content: center;
     align-content: center;
+    align-items: center;
 }
 
 .about-us {
@@ -461,7 +464,6 @@ footer {
     grid-area: footer;
     padding-top: 5em;
     text-align: center;
-    grid-column: 2 / span 2;
     font-family: "Montserrat", sans-serif;
     font-weight: 500;
 }
@@ -469,4 +471,44 @@ footer {
 ::cue {
     color: var(--text-color);
     background-color: rgba(255, 255, 255, 0.5);
+}
+
+.hr{
+    display: flex;
+    justify-content: center;
+}
+
+#cercuri {
+    display: flex;
+    padding: 7px;
+}
+
+#cerc {
+    z-index: 2;
+    height: 40px;
+    width: 40px;
+    background-image: radial-gradient(transparent, transparent, green, yellow);
+    border-radius: 50%;
+}
+
+#cerc2 {
+    position: absolute;
+    margin-top: 20px;
+    margin-left: -5px;
+    z-index: 3;
+    height: 20px;
+    width: 20px;
+    background-image: radial-gradient(transparent, transparent, darkgreen, black, transparent);
+    border-radius: 50%;
+}
+
+#cerc3 {
+    position: absolute;
+    z-index: 1;
+    margin-left: 20px;
+    margin-top: -5px;
+    height: 30px;
+    width: 30px;
+    background-image: radial-gradient(transparent, transparent, darkgreen, black, transparent);
+    border-radius: 50%;
 }
