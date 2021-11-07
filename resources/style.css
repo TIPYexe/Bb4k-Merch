@@ -1,6 +1,7 @@
 @media (max-width: 100em) {
     #poza-prezentare{
-        margin-top: -10em;
+        /*margin-top: -2em;*/
+        padding-bottom: 8em;
     }
     .instagram-media:nth-child(2){
         opacity: 0;
@@ -17,8 +18,10 @@
 
 @media (max-width: 60em) {
     #poza-prezentare{
-        margin-top: -20em;
-        /*margin-bottom: -20em;*/
+        /*margin-top: -2em;*/
+        /*margin-bottom: -5em;*/
+        padding-top: 2em;
+        padding-bottom: 10em;
     }
     .instagram-media:nth-child(3){
         opacity: 0;
@@ -229,19 +232,32 @@ nav li {
     /*background-image: linear-gradient(to left,var(--secondary-color),green,var(--secondary-color));*/
 }
 
+.error{
+    grid-area: zona2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+}
+
+.error-pic{
+    width: 100%;
+}
+
 #img-container {
     grid-area: zona1;
-    height: 30vh;
+    /*height: 30vh;*/
     overflow: hidden;
     display: flex;
     align-items: center;
-    padding-top: 25em;
+    /*padding-top: 25em;*/
 }
 
 #poza-prezentare {
     object-fit: contain;
     width: 100%;
-
+    margin-bottom: -20em;
     transition: all 0.4s ease;
 }
 
@@ -352,15 +368,6 @@ tfoot {
     display: flex;
 }
 
-/*.iframe-tabs:after{*/
-/*    content: "";*/
-/*    position: relative;*/
-/*    height: 3rem;*/
-/*    width: 5rem;*/
-/*    background-color: var(--secondary-color);*/
-/*    clip-path: polygon(0 0, 15% 15%, 85% 15%, 100% 0);*/
-/*}*/
-
 .iframe-tabs a{
 
     border-top: 0.4em solid var(--secondary-color);
@@ -383,4 +390,9 @@ footer {
     grid-column: 2 / span 2;
     font-family: "Montserrat", sans-serif;
     font-weight: 500;
+}
+
+::cue{
+    color: var(--text-color);
+    background-color: rgba(255, 255, 255, 0.5);
 }

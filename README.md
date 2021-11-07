@@ -1,7 +1,7 @@
 # Bb4k-Merch
 
 # RTuning
-TODO: link iframe + semnificatie strong, b etc
+TODO: semnificatie strong, b etc
 
 Proiectul meu pentru optionalul de TehniciWeb.
 

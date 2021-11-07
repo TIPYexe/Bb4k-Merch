@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <%- include("../fragmente/head.ejs") %>
+
+    <meta name="description" content="Hanorace, caciuli, tricouri, masti de sezon, avem tot ce-ti trebuie.">
+    <meta name="keywords" content="Bb4k, bb4k, ciucas, 12c baietii, merch">
+    <title>Bb4k</title>
+
+</head>
+
+<body>
+<div class="container">
+
+    <%- include("../fragmente/back-to-top-button.ejs") %>
+
+    <div class="page-padding">
+
+        <%- include("../fragmente/header.ejs") %>
+        <div class="error">
+            <video controls style="height:100%;" poster="/media/video/poster-video.jpg">
+                <source src="/media/video/blana.mp4" type="video/mp4">
+                <source src="/media/video/blana.ogv" type="video/ogv">
+
+                <track default src="/media/video/tracks/subtitrari-ro.vtt" kind="captions" srclang="ro" label="romană"/>
+
+                <track src="/media/video/tracks/subtitrari-en.vtt" kind="captions" srclang="en" label="engleză"/>
+            </video>
+        </div>
+        <%- include("../fragmente/footer.ejs") %>
+
+    </div>
+</div>
+
+</body>
+</html>
