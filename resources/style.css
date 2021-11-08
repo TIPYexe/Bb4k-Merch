@@ -473,42 +473,11 @@ footer {
     background-color: rgba(255, 255, 255, 0.5);
 }
 
-.hr{
-    display: flex;
-    justify-content: center;
-}
-
-#cercuri {
-    display: flex;
-    padding: 7px;
-}
-
-#cerc {
-    z-index: 2;
+hr{
     height: 40px;
-    width: 40px;
-    background-image: radial-gradient(transparent, transparent, green, yellow);
-    border-radius: 50%;
-}
-
-#cerc2 {
-    position: absolute;
-    margin-top: 20px;
-    margin-left: -5px;
-    z-index: 3;
-    height: 20px;
-    width: 20px;
-    background-image: radial-gradient(transparent, transparent, darkgreen, black, transparent);
-    border-radius: 50%;
-}
-
-#cerc3 {
-    position: absolute;
-    z-index: 1;
-    margin-left: 20px;
-    margin-top: -5px;
-    height: 30px;
-    width: 30px;
-    background-image: radial-gradient(transparent, transparent, darkgreen, black, transparent);
-    border-radius: 50%;
+    border: none;
+    background-image: radial-gradient(transparent 5%, darkgreen, black, transparent 25%, transparent 100%), radial-gradient(transparent 20%, green, yellow, transparent 50%, transparent 100%), radial-gradient(transparent 10%, darkgreen, black, transparent 25%, transparent 100%);
+    background-size: 40px 40px, 40px 40px, 40px 40px;
+    background-position:  5px 13px, 10px 5px, 15px -5px;
+    background-repeat: repeat-x, repeat-x, repeat-x;
 }
