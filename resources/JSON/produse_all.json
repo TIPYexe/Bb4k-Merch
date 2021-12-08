@@ -1,0 +1,113 @@
+{
+  "path": "media/produse",
+  "images": [
+    {
+      "file_name": "caciula.png",
+      "name": "Caciula Neagra",
+      "desc": "Caciula din bumbac 100%, pentru a putea sta la gratar afara si cand e frig.",
+      "time": "dimineata"
+    },
+    {
+      "file_name": "caciula_verde.png",
+      "name": "Caciula Verde",
+      "desc": "Caciula din bumbac 100%, pentru a putea sta la gratar afara si cand e frig.",
+      "time": "pranz"
+    },
+    {
+      "file_name": "caciula_maro.png",
+      "name": "Caciula Maro",
+      "desc": "Caciula din bumbac 100%, pentru a putea sta la gratar afara si cand e frig.",
+      "time": "seara"
+    },
+    {
+      "file_name": "geaca_vant.png",
+      "name": "Geaca Neagra",
+      "desc": "Ai nevoie sa te aperi de vant.",
+      "time": "dimineata"
+    },
+    {
+      "file_name": "geaca_vant_verde.png",
+      "name": "Geaca Verde",
+      "desc": "Ai nevoie sa te aperi de vant.",
+      "time": "pranz"
+    },
+    {
+      "file_name": "geaca_vant_maro.png",
+      "name": "Geaca Maro",
+      "desc": "Ai nevoie sa te aperi de vant.",
+      "time": "seara"
+    },
+    {
+      "file_name": "hanorac.png",
+      "name": "Hanorac Neagru",
+      "desc": "Ca sa iti tina de cald si afara fara sa stai sa iei geaca pe tine.",
+      "time": "dimineata"
+    },
+    {
+      "file_name": "hanorac_verde.png",
+      "name": "Hanorac Verde",
+      "desc": "Ca sa iti tina de cald si afara fara sa stai sa iei geaca pe tine.",
+      "time": "pranz"
+    },
+    {
+      "file_name": "hanorac_maro.png",
+      "name": "Hanorac Maro",
+      "desc": "Ca sa iti tina de cald si afara fara sa stai sa iei geaca pe tine.",
+      "time": "seara"
+    },
+    {
+      "file_name": "masca.png",
+      "name": "Masca Neagra",
+      "desc": "Fii responsabil si cool in acelasi timp.",
+      "time": "dimineata"
+    },
+    {
+      "file_name": "masca_verde.png",
+      "name": "Masca Verde",
+      "desc": "Fii responsabil si cool in acelasi timp.",
+      "time": "pranz"
+    },
+    {
+      "file_name": "masca_maro.png",
+      "name": "Masca Maro",
+      "desc": "Fii responsabil si cool in acelasi timp.",
+      "time": "seara"
+    },
+    {
+      "file_name": "pantaloni_cargo.png",
+      "name": "Pantaloni Cargo Neagri",
+      "desc": "Singurii pantaloni in care poti tine un PET de bere in buzunar.",
+      "time": "dimineata"
+    },
+    {
+      "file_name": "pantaloni_cargo_verde.png",
+      "name": "Pantaloni Cargo Verzi",
+      "desc": "Singurii pantaloni in care poti tine un PET de bere in buzunar.",
+      "time": "pranz"
+    },
+    {
+      "file_name": "pantaloni_cargo_maro.png",
+      "name": "Pantaloni Cargo Maro",
+      "desc": "Singurii pantaloni in care poti tine un PET de bere in buzunar.",
+      "time": "seara"
+    },
+    {
+      "file_name": "papuci.png",
+      "name": "Papuci Neagri",
+      "desc": "Singurii pantaloni in care poti tine un PET de bere in buzunar.",
+      "time": "dimineata"
+    },
+    {
+      "file_name": "papuci_verzi.png",
+      "name": "Papuci Verzi",
+      "desc": "Singurii pantaloni in care poti tine un PET de bere in buzunar.",
+      "time": "pranz"
+    },
+    {
+      "file_name": "papuci_maro.png",
+      "name": "Papuci Maro",
+      "desc": "Singurii pantaloni in care poti tine un PET de bere in buzunar.",
+      "time": "seara"
+    }
+  ]
+}

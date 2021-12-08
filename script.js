@@ -1,4 +1,8 @@
 const express = require('express');
+const fs = require('fs');
+const sharp = require('sharp')
+
+const {raw} = require("express");
 
 app = express();
 
@@ -18,6 +22,20 @@ app.get("/", function(req, res){
 app.get("/index", function(req, res){
     console.log(req.url);
     res.render("pages/index.ejs");
+})
+
+app.get("/produse", function(req, res){
+    console.log(req.url);
+
+    var rawData = fs.readFileSync(__dirname + "/resources/JSON/produse_all.json").toString('utf-8');
+    objImagini = JSON.parse(rawData);
+
+    for(let imag of objImagini.images){
+        let file_name = imag.file_name.split('.')[0];
+
+    }
+
+    res.render("pages/produse.ejs", {images:objImagini.images, path: objImagini.path});
 })
 
 app.get("/*.ejs", function(req, res){

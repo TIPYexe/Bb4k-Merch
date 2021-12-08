@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <%- include("../fragmente/head.ejs") %>
+    <link rel="stylesheet" href="/resources/style_produse.css">
+    <meta name="description" content="Imbraca-te de sezon cu marca ta favorita Bb4k: hanorace, caciuli, tricouri, masti.">
+    <meta name="keywords" content="Hanorace, caciuli, tricouri, masti, pantaloni, geci">
+    <title>Bb4k</title>
+
+</head>
+
+<body>
+<div class="container">
+
+    <%- include("../fragmente/back-to-top-button.ejs") %>
+
+    <div class="page-padding">
+
+        <%- include("../fragmente/header.ejs") %>
+
+        <section id="galerie-statica">
+            <h2>Produse</h2>
+            <div id="grid-galerie">
+                <% for(let imag of locals.images){
+                    %>
+
+                    <figure>
+                        <picture>
+                            <source srcset="/<%- imag.small%>" media="(max-width:700px)"/>
+                            <img src="/<%- locals.path + '/' + imag.file_name %>" alt="poza_produs"/>
+                        </picture>
+                        <figcaption> <%- imag.desc%></figcaption>
+                    </figure>
+
+                <% } %>
+            </div>
+        </section>
+
+        <%- include("../fragmente/footer.ejs") %>
+
+    </div>
+</div>
+
+</body>
+</html>
