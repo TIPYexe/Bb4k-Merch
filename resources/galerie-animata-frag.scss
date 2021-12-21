@@ -1,0 +1,32 @@
+//$procent0: 0 !default;
+//$procent1: 0 !default;
+//$procent2: 0 !default;
+//$procent3: 0 !default;
+//$procent4: 0 !default;
+//$procent5: 0 !default;
+//
+//@keyframes animatie {
+//  0% { z-index: 10; opacity: 1; }
+//  $procent0% { transform: translateX(20%); }
+//  $procent1% { transform: translateX(-30%); opacity: 1;}
+//  $procent2% { z-index: 10; transform: translateX(200%); opacity: 0;}
+//  $procent3% { z-index: -10; transform: translateX(0%); }
+//
+//  $procent4% { opacity: 0; transform: translateX(0%); z-index: -10;}
+//  $procent5% { z-index: 0; }
+//  100% { opacity: 1; z-index: 0; }
+//}
+//
+//
+//
+////@keyframes animatie {
+////  0% { z-index: 10; opacity: 1; }
+////  1% { transform: translateX($procent0); }
+////  2% { transform: translateX(-$procent1); opacity: 1;}
+////  3% { z-index: 10; transform: translateX($procent2); opacity: 0;}
+////  4% { z-index: -10; transform: translateX($procent3); }
+////
+////  5% { opacity: 0; transform: translateX($procent4); z-index: -10;}
+////  6% { z-index: 0; }
+////100% { opacity: $procent5; z-index: 0; }
+////}

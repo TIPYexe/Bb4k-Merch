@@ -36,8 +36,18 @@
 
 .page-padding {
     grid-template-areas: "header header header header"
+                        "banner banner banner banner"
                         "zona1 zona1 zona1 zona1"
                         "footer footer footer footer";
+}
+
+#invisible_nav{
+    grid-area: header;
+}
+
+#invisible_nav img{
+    width: 6em;
+    height: 6em;
 }
 
 #grid-galerie img {
@@ -48,7 +58,23 @@
     grid-area: zona1;
 }
 
-figure{
+#galerie-statica figure{
     min-height: 30vh;
+    transition-duration: 0.5s;
+}
+
+#galerie-statica figure:hover{
+    overflow: hidden;
+    transform: scale(1.15);
+    transition-duration: 0.5s;
+}
+
+#galerie-statica figcaption {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 1em;
 }
 

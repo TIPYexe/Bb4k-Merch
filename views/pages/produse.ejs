@@ -2,8 +2,10 @@
 <html lang="ro">
 <head>
     <%- include("../fragmente/head.ejs") %>
+    <link rel="stylesheet" href="/resources/galerie-animata.css">
     <link rel="stylesheet" href="/resources/style_produse.css">
-    <meta name="description" content="Imbraca-te de sezon cu marca ta favorita Bb4k: hanorace, caciuli, tricouri, masti.">
+    <meta name="description"
+          content="Imbraca-te de sezon cu marca ta favorita Bb4k: hanorace, caciuli, tricouri, masti.">
     <meta name="keywords" content="Hanorace, caciuli, tricouri, masti, pantaloni, geci">
     <title>Bb4k</title>
 
@@ -17,22 +19,60 @@
     <div class="page-padding">
 
         <%- include("../fragmente/header.ejs") %>
+        <div id="invisible_nav"><img src="media/LOGO_Original_4.png" alt="Bb4k-logo"></div>
+
+        <%
+        const dimineata = {start: 5 * 60, end: 11 * 60 + 59}
+        const zi = {start: 12 * 60, end: 19 * 60 + 59}
+
+        const date = new Date();
+        const now = date.getHours() * 60 + date.getMinutes();
+
+        let time;
+        if (dimineata.start <= now && now <= dimineata.end)
+            time = "dimineata";
+        else {
+            if (zi.start <= now && now <= zi.end)
+                time = "zi";
+            else
+                time = "noapte";
+        }
+        %>
+
+        <section id="galerie-animata">
+            <h2>Prezentare</h2>
+            <div>
+                <%
+                for(let imag of locals.images){
+                if (imag.time !== time){
+                %>
+                    <figure>
+                        <picture>
+                            <source srcset="/<%- locals.path + '/smalli/' + imag.file_name.split('.')[0] + "-250.webp" %>"
+                                    media="(max-width:700px)"/>
+                            <img src="/<%- locals.path + '/' + imag.file_name %>" alt="<%- imag.name %>"/>
+                        </picture>
+                    </figure>
+                <% } } %>
+            </div>
+        </section>
 
         <section id="galerie-statica">
             <h2>Produse</h2>
             <div id="grid-galerie">
-                <% for(let imag of locals.images){
-                    %>
-
+                <%
+                for(let imag of locals.images){
+                if (imag.time === time){
+                %>
                     <figure>
                         <picture>
-                            <source srcset="/<%- imag.small%>" media="(max-width:700px)"/>
-                            <img src="/<%- locals.path + '/' + imag.file_name %>" alt="poza_produs"/>
+                            <source srcset="/<%- locals.path + '/smalli/' + imag.file_name.split('.')[0] + "-250.webp" %>"
+                                    media="(max-width:700px)"/>
+                            <img src="/<%- locals.path + '/' + imag.file_name %>" alt="<%- imag.name %>"/>
                         </picture>
-                        <figcaption> <%- imag.desc%></figcaption>
+                        <figcaption> <%- imag.name %></figcaption>
                     </figure>
-
-                <% } %>
+                <% } } %>
             </div>
         </section>
 
