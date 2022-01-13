@@ -4,11 +4,13 @@ const sharp = require('sharp');
 
 const ejs = require('ejs');
 const sass = require('sass');
-
+const {Client} = require('pg');
 const {raw} = require("express");
 const path = require("path");
 
 // const sass = require("ejs");
+var client = new Client({user: 'postgres', password: 'postgres', database: 'Bb4kMerch', host: 'localhost', port: 5432});
+client.connect();
 
 var app = express();
 
@@ -19,62 +21,85 @@ app.set("view engine", "ejs");
 app.use("/media", express.static(__dirname + "/media"));
 app.use("/resources", express.static(__dirname + "/resources"));
 
-app.get("/", function (req, res) {
+app.get(["/", "/index", "/home"], function (req, res) {
     console.log(req.url);
     console.log(req.ip);
-    res.render("pages/index.ejs");
+    res.render("pages/index.ejs", {ip: req.ip});
 })
 
-app.get("/index", function (req, res) {
-    console.log(req.url);
-    res.render("pages/index.ejs");
-})
+var nrRandom;
+
+// var v_optiuni = [];
+// client.query("select * from public.produse", function (errCateg, rezCateg) {
+//     if (rezCateg)
+//         for (let elem of rezCateg.rows) {
+//             console.log(elem.id);
+//             v_optiuni.push(elem.unnest);
+//         }
+//     else
+//         console.log(errCateg);
+//     // console.log(v_optiuni);
+// })
 
 app.get("/produse", function (req, res) {
-    console.log(req.url);
     convertImages();
-    //
-    // for(let imag of objImagini.images){
-    //
-    //
-    // }
+    var conditie = "";
+    if (req.query.categorie) {
+        conditie += ` and categorie=${req.query.categorie}`;
+    }
+    client.query(`select * from produse where 1=1 ${conditie}`, function (err, rez) {
+        if (!err) {
+            res.render("pages/produse.ejs", {produse: rez.rows, sorted: sorted, images: objImagini.images, path: objImagini.path});
 
-    res.render("pages/produse.ejs", {images: objImagini.images, path: objImagini.path});
+            // client.query("select * from produse", function (errCateg, rezCateg) {
+            //     v_optiuni = [];
+            //     if (!errCateg)
+            //         for (let elem of rezCateg.rows) {
+            //             v_optiuni.push(elem.unnest);
+            //         }
+            //     else
+            //         console.log(errCateg);
+            //
+            // });
+        } else {
+        }
+    })
 })
+
+app.get("/produs/:id", function (req, res) {
+    Client.query(`select * from produse where id=${req.params.id}`, function (err, rez) {
+        if (!err) {
+            res.render("pages/produse.ejs", {prod: rez.rows[0]});
+        } else {
+        }
+    })
+})
+
+
+// console.log(req.url);
+convertImages();
+nrRandom = Math.floor(Math.random() * 3 + 3) * 2;
+
+// res.render("pages/produse.ejs", {images: objImagini.images, path: objImagini.path, nrImag: nrRandom});
 
 app.get("*/galerie-animata.css", function (req, res) {
     res.setHeader("Content-Type", "text/css");
     let sirScss = fs.readFileSync("./resources/galerie-animata.scss").toString("utf-8");
-    let nrRandom = Math.floor(Math.random() * 3 + 3) * 2;
     let rezScss = ejs.render(sirScss, {procent: 100 / nrRandom, nrPoze: nrRandom});
 
-    fs.writeFileSync(`${__dirname}/resources/temp/galerie-animata.scss`, rezScss);
-    let css_path = path.join(__dirname, "resources", "temp", "galerie-animata.css");
-    let scss_path = path.join(__dirname, "resources", "temp", "galerie-animata.scss");
-    // const resCss = sass.compile(scss_path, function (err, rezComp) {
-    //     console.log(rezComp);
-    //     if (err) {
-    //         console.log(`eroare: ${err.message}`);
-    //         res.end();
-    //         return;
-    //     }
-    //     fs.writeFileSync(css_path, rezComp.css, function (err) {
-    //         if (err) {
-    //             console.log(err);
-    //         }
-    //     });
-    //     res.sendFile(css_path);
-    // });
+    fs.writeFileSync(`${__dirname}/temp/galerie-animata.scss`, rezScss);
+    let css_path = path.join(__dirname, "temp", "galerie-animata.css");
+    let sass_path = path.join(__dirname, "temp", "galerie-animata.scss");
 
-    sass.render({file: scss_path, sourceMap: true}, function (err, rezComp){
+    sass.render({file: sass_path, sourceMap: true}, function (err, rezComp) {
         console.log(rezComp);
-        if(err){
+        if (err) {
             console.log(`eroare: ${err.message}`);
             res.end();
             return;
         }
-        fs.writeFileSync(css_path, rezComp.css, function (err){
-            if(err){
+        fs.writeFileSync(css_path, rezComp.css, function (err) {
+            if (err) {
                 console.log(err);
             }
         });
@@ -83,7 +108,7 @@ app.get("*/galerie-animata.css", function (req, res) {
 })
 
 app.get("*/galerie-animata.css.map", function (req, res) {
-    res.sendFile(path.join(__dirname, "resources", "temp", "galerie-animata.css.map"));
+    res.sendFile(path.join(__dirname, "temp", "galerie-animata.css.map"));
 })
 
 app.get("/*.ejs", function (req, res) {

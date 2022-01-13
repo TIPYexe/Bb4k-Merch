@@ -43,36 +43,217 @@
             <h2>Prezentare</h2>
             <div>
                 <%
-                for(let imag of locals.images){
-                if (imag.time !== time){
+                //let imag of locals.images[i]
+                for(let i = 0; i < locals.nrImag; i++){
+                if (locals.images[i].time !== time){
                 %>
                     <figure>
                         <picture>
-                            <source srcset="/<%- locals.path + '/smalli/' + imag.file_name.split('.')[0] + "-250.webp" %>"
+                            <source srcset="/<%- locals.path + '/smalli/' + locals.images[i].file_name.split('.')[0] + "-250.webp" %>"
                                     media="(max-width:700px)"/>
-                            <img src="/<%- locals.path + '/' + imag.file_name %>" alt="<%- imag.name %>"/>
+                            <img src="/<%- locals.path + '/' + locals.images[i].file_name %>"
+                                 alt="<%- locals.images[i].name %>"/>
                         </picture>
                     </figure>
                 <% } } %>
             </div>
         </section>
 
+        <script>
+            window.onload = function () {
+                var filterBtn = document.getElementById('btn-filtru');
+                var articole = document.getElementsByClassName('produs');
+
+                function sorteaza(semn, articole) {
+                    var v_articole = Array.from(articole);
+                    v_articole.sort(function (a, b) {
+                        var pret_a = parseInt(a.getElementsByClassName('pret')[0].getElementsByTagName('a')[0].innerHTML);
+                        var pret_b = parseInt(b.getElementsByClassName('pret')[0].getElementsByTagName('a')[0].innerHTML);
+                        if (pret_a !== pret_b) {
+                            return semn * (pret_a - pret_b);
+                        } else {
+                            var nume_a = a.getElementsByClassName('nume')[0].getElementsByTagName('a')[0].innerHTML;
+                            var nume_b = b.getElementsByClassName('nume')[0].getElementsByTagName('a')[0].innerHTML;
+                            return semn * nume_a.localeCompare(nume_b);
+                        }
+                    });
+                    for (let elem of v_articole) {
+                        elem.parentNode.appendChild(elem);
+                    }
+                }
+
+                filterBtn.onclick = function () {
+                    for (let elem of articole) {
+                        elem.style.display = "none";
+
+                        var selectedPret = document.getElementById('pret').value;
+                        var condPret = Math.floor(elem.getElementsByClassName('pret')[0].getElementsByTagName('a')[0].innerText) <= selectedPret;
+
+                        var prodCautat = document.getElementById('nume-prod').value;
+                        var numeElem = elem.getElementsByClassName('nume')[0].getElementsByTagName('a')[0];
+                        var condNume = numeElem.innerHTML.toLowerCase().startsWith(prodCautat.toLowerCase());
+
+                        var descSearch = document.getElementById('desc-search');
+                        var descElem = elem.getElementsByClassName('desc')[0].getElementsByTagName('a')[0].innerHTML.toLowerCase();
+                        var condDesc = true;
+                        if (descSearch) {
+                            descSearch = descSearch.value.toLowerCase();
+                            condDesc = descElem.indexOf(descSearch) !== -1;
+                        }
+
+                        var selectedColor = [document.getElementById('i_cul0'), document.getElementById('i_cul1'), document.getElementById('i_cul2')];
+                        var elemColor = elem.getElementsByClassName('culoare')[0].getElementsByTagName('a')[0].innerHTML;
+                        var condColor = false;
+                        if(selectedColor[0].checked) {
+                            if (elemColor == selectedColor[0].value)
+                                condColor = true;
+                        }
+                        if(selectedColor[1].checked) {
+                            if (elemColor == selectedColor[1].value)
+                                condColor = true;
+                        }
+                        if(selectedColor[2].checked) {
+                            if (elemColor == selectedColor[2].value) {
+                                condColor = true;
+                            }
+                        }
+                        if(!selectedColor[0].checked && !selectedColor[1].checked && !selectedColor[2].checked)
+                            condColor = true;
+
+                        // var noutatiCheck = document.getElementById('noutati').value;
+                        // var elemDate = elem.getElementsByClassName('data')[0].getElementsByTagName('a')[0];
+                        // var d1 = new Date(2021, 12, 20);
+                        // var d2 = new Date();
+                        // var condCheck = noutatiCheck && (d1 < elemDate);
+
+                        if (condPret && condNume && condDesc && condColor) {
+                            elem.style.display = "flex";
+                        }
+                    }
+                }
+
+                var resetBtn = document.getElementById('reset-filtre');
+                resetBtn.onclick = function () {
+                    document.getElementById('pret').value = 100;
+                    document.getElementById('nume-prod').value = '';
+                    document.getElementById('noutati').value = false;
+                    document.getElementById('desc-search').value = '';
+                    document.querySelector('input[type=radio][id=i_cul0]').checked = false;
+                    document.querySelector('input[type=radio][id=i_cul1]').checked = false;
+                    document.querySelector('input[type=radio][id=i_cul2]').checked = false;
+                    document.getElementById('material-filtru').value = 1;
+
+                    for (let elem of articole)
+                        elem.style.display = "block";
+                }
+
+                var sortAsc = document.getElementById('sort-asc');
+                var sortDesc = document.getElementById('sort-desc');
+
+                sortAsc.onclick = function () {
+                    sorteaza(1, articole);
+                }
+
+                sortDesc.onclick = function () {
+                    sorteaza(-1, articole);
+                }
+
+                var calcBtn = document.getElementById('pret-mediu');
+                calcBtn.onclick = function () {
+                    var suma = 0;
+                    for (let elem of articole) {
+                        suma += Math.floor(elem.getElementsByClassName('pret')[0].getElementsByTagName('a')[0].innerText)
+                    }
+
+                    var display = document.getElementById('pop-up');
+                    display.getElementsByTagName('h1')[0].innerText = `Pret mediu: ${suma}`;
+                    display.style.display = 'flex';
+
+                    setTimeout(function () {
+                        display.style.display = 'none';
+                    }, 2000);
+                }
+
+            }
+        </script>
+
+        <div id="pop-up" style="display: none"><h1>Pret mediu:</h1></div>
+
         <section id="galerie-statica">
             <h2>Produse</h2>
+
+            <div class="filtre">
+                <label>Nume: <input type="text" id="nume-prod"></label>
+
+                <script>
+                    function updateValue(val) {
+                        document.getElementById('pret-selectat').innerHTML = `Pret max: ${val} lei`;
+                    }
+                </script>
+                | 30
+                <input type="range" id="pret" name="pret-select" value="100" min="30" max="500"
+                       onchange="updateValue(this.value)">
+                500 |
+                <label id="pret-selectat">Pret max: 100 lei</label>
+                |
+                <label for="noutati">Noutati</label>
+                <input type="checkbox" id="noutati" value="false">
+                |
+                <label>Material:
+                    <select id="material-filtru">
+                        <option value="1">Panza tare</option>
+                        <option value="2">Bumbac</option>
+                        <option value="3">Matase</option>
+                    </select>
+                </label>
+                |
+                <div>Culoare:
+                    <label>Negru
+                        <input id="i_cul0" value="0" type="radio"/>
+                    </label>
+                    <label>Verde
+                        <input id="i_cul1" value="1" type="radio"/>
+                    </label>
+                    <label>Maro
+                        <input id="i_cul2" value="2" type="radio"/>
+                    </label>
+                </div>
+
+                <label>Descriere: <textarea id="desc-search" rows="4" cols="20"></textarea></label>
+
+            </div>
+            <button id="btn-filtru">Filtrare</button>
+            <button id="sort-desc">Sort <</button>
+            <button id="sort-asc">Sort ></button>
+            <button id="reset-filtre">Reset</button>
+            <button id="pret-mediu">Calculator</button>
+
             <div id="grid-galerie">
                 <%
-                for(let imag of locals.images){
-                if (imag.time === time){
+                for(let prod of locals.produse){
                 %>
-                    <figure>
-                        <picture>
-                            <source srcset="/<%- locals.path + '/smalli/' + imag.file_name.split('.')[0] + "-250.webp" %>"
-                                    media="(max-width:700px)"/>
-                            <img src="/<%- locals.path + '/' + imag.file_name %>" alt="<%- imag.name %>"/>
-                        </picture>
-                        <figcaption> <%- imag.name %></figcaption>
-                    </figure>
-                <% } } %>
+                    <article class="produs">
+
+                        <h3 class="nume"><a href="/produse/<%- prod.id %>"><%- prod.nume %></a></h3>
+                        <div class="produs-colums">
+                            <div class="column">
+                                <img id='img-prod' src="../../media/produse/<%- prod.image %>">
+                                <span class="pret"><b>Pret: </b><a><%- prod.pret %></a>lei</span>
+                                <span class="material"><b>Material: </b><a><%- prod.material %></a></span>
+                                <span class="medii"><b>Medii utilizare: </b><a><%- prod.medii_utilizare %></a></span>
+
+                                <span class="data"><b>Lansare: </b><a><%- prod.lansare_produs %></a></span>
+                                <span class="in-stoc"><b>Stoc: </b><a><%- prod.in_stoc %></a></span>
+                            </div>
+                            <div class="column">
+                                <span class="categ"><b>Categorie: </b><a><%- prod.categorie %></a></span>
+                                <span class="desc"><b>Descriere: </b><a><%- prod.descriere %></a></span>
+                                <span class="culoare"><b>Culoare: </b><a><%- prod.culoare %></a></span>
+                            </div>
+                        </div>
+
+                    </article>
+                <% } %>
             </div>
         </section>
 
