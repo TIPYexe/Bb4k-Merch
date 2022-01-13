@@ -9,7 +9,15 @@ const {raw} = require("express");
 const path = require("path");
 
 // const sass = require("ejs");
-var client = new Client({user: 'postgres', password: 'postgres', database: 'Bb4kMerch', host: 'localhost', port: 5432});
+// var client = new Client({user: 'postgres', password: 'postgres', database: 'Bb4kMerch', host: 'localhost', port: 5432});
+var client = new Client({
+    user: 'osvgrtqqvmxhna',
+    password: 'f83b80e406c91f77e951940dfe7ba8a8d5935919a91f5c9079d4870c6a68aadb',
+    database: 'dar792kguoktt1', host: 'ec2-34-239-196-254.compute-1.amazonaws.com',
+    port: 5432,
+    ssl: {
+        rejectUnauthorized: false
+    }});
 client.connect();
 
 var app = express();
@@ -153,6 +161,9 @@ function convertImages() {
     }
 }
 
-app.listen(8080);
+// app.listen(8080);
+
+var s_port = process.env.PORT || 5000;
+app.listen(s_port);
 
 console.log("Serverul a pornit.")
