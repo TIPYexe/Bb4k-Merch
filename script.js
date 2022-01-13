@@ -11,9 +11,10 @@ const path = require("path");
 // const sass = require("ejs");
 // var client = new Client({user: 'postgres', password: 'postgres', database: 'Bb4kMerch', host: 'localhost', port: 5432});
 var client = new Client({
-    user: 'osvgrtqqvmxhna',
-    password: 'f83b80e406c91f77e951940dfe7ba8a8d5935919a91f5c9079d4870c6a68aadb',
-    database: 'dar792kguoktt1', host: 'ec2-34-239-196-254.compute-1.amazonaws.com',
+    user: 'wyldhvchrlnsee',
+    password: '84e032b7c371aa35c96e9f90b83ed1102dad04149554119e8b3ddfcff6e1ee24',
+    database: 'd2k1lapgniubct',
+    host: 'ec2-18-234-17-166.compute-1.amazonaws.com',
     port: 5432,
     ssl: {
         rejectUnauthorized: false
