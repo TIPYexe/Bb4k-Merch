@@ -58,7 +58,7 @@ app.get("/produse", function (req, res) {
     }
     client.query(`select * from produse where 1=1 ${conditie}`, function (err, rez) {
         if (!err) {
-            res.render("pages/produse.ejs", {produse: rez.rows, sorted: sorted, images: objImagini.images, path: objImagini.path});
+            res.render("pages/produse.ejs", {produse: rez.rows, images: objImagini.images, path: objImagini.path});
 
             // client.query("select * from produse", function (errCateg, rezCateg) {
             //     v_optiuni = [];
