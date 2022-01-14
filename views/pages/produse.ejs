@@ -121,6 +121,7 @@
                             condColor = true;
 
                         var selectedMaterial = document.querySelector('select[id=material-filtru]').selectedOptions[0].value;
+                        console.log(selectedMaterial, elem.getElementsByClassName('material')[0].getElementsByTagName('a')[0].innerHTML);
                         var condMaterial = true;
                         if (selectedMaterial === 'Nimic')
                             condMaterial = true;
@@ -173,13 +174,16 @@
                 var calcBtn = document.getElementById('pret-mediu');
                 calcBtn.onclick = function () {
                     var suma = 0;
+                    var nr = 0;
                     for (let elem of articole) {
-                        if (elem.style.display !== 'none')
+                        if (elem.style.display !== 'none') {
                             suma += Math.floor(elem.getElementsByClassName('pret')[0].getElementsByTagName('a')[0].innerText)
+                            nr++;
+                        }
                     }
 
                     var display = document.getElementById('pop-up');
-                    display.getElementsByTagName('h1')[0].innerText = `Pret mediu: ${suma}`;
+                    display.getElementsByTagName('h1')[0].innerText = `Pret mediu: ${suma/nr}`;
                     display.style.display = 'flex';
 
                     setTimeout(function () {
