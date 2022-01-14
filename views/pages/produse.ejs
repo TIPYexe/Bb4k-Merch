@@ -150,6 +150,7 @@
                     document.querySelector('input[type=radio][id=i_cul1]').checked = false;
                     document.querySelector('input[type=radio][id=i_cul2]').checked = false;
                     document.getElementById('material-filtru').value = 1;
+                    document.querySelector('select[id=material-filtru]').selectedIndex = 0;
 
                     for (let elem of articole)
                         elem.style.display = "block";
