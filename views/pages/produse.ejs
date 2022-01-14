@@ -120,6 +120,14 @@
                         if(!selectedColor[0].checked && !selectedColor[1].checked && !selectedColor[2].checked)
                             condColor = true;
 
+                        var selectedMaterial = document.querySelector('select[id=material-filtru]').selectedOptions[0].value;
+                        var condMaterial = true;
+                        if(selectedMaterial === 'Nimic')
+                            condMaterial = true;
+                        else {
+                            condMaterial = elem.getElementsByClassName('material')[0].getElementsByTagName('a')[0].innerHTML.toLowerCase().indexOf(selectedMaterial.toLowerCase()) !== -1;
+                        }
+
                         // var noutatiCheck = document.getElementById('noutati').value;
                         // var elemDate = elem.getElementsByClassName('data')[0].getElementsByTagName('a')[0];
                         // var d1 = new Date(2021, 12, 20);
@@ -201,9 +209,10 @@
                 |
                 <label>Material:
                     <select id="material-filtru">
-                        <option value="1">Panza tare</option>
-                        <option value="2">Bumbac</option>
-                        <option value="3">Matase</option>
+                        <option value="Nimic">Nimic</option>
+                        <option value="Panza tare">Panza tare</option>
+                        <option value="Bumbac">Bumbac</option>
+                        <option value="Matase">Matase</option>
                     </select>
                 </label>
                 |

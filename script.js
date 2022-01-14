@@ -59,17 +59,6 @@ app.get("/produse", function (req, res) {
     client.query(`select * from produse where 1=1 ${conditie}`, function (err, rez) {
         if (!err) {
             res.render("pages/produse.ejs", {produse: rez.rows, images: objImagini.images, path: objImagini.path});
-
-            // client.query("select * from produse", function (errCateg, rezCateg) {
-            //     v_optiuni = [];
-            //     if (!errCateg)
-            //         for (let elem of rezCateg.rows) {
-            //             v_optiuni.push(elem.unnest);
-            //         }
-            //     else
-            //         console.log(errCateg);
-            //
-            // });
         } else {
         }
     })
@@ -84,12 +73,8 @@ app.get("/produs/:id", function (req, res) {
     })
 })
 
-
-// console.log(req.url);
 convertImages();
 nrRandom = Math.floor(Math.random() * 3 + 3) * 2;
-
-// res.render("pages/produse.ejs", {images: objImagini.images, path: objImagini.path, nrImag: nrRandom});
 
 app.get("*/galerie-animata.css", function (req, res) {
     res.setHeader("Content-Type", "text/css");
