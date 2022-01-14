@@ -104,28 +104,31 @@
                         var selectedColor = [document.getElementById('i_cul0'), document.getElementById('i_cul1'), document.getElementById('i_cul2')];
                         var elemColor = elem.getElementsByClassName('culoare')[0].getElementsByTagName('a')[0].innerHTML;
                         var condColor = false;
-                        if(selectedColor[0].checked) {
+                        if (selectedColor[0].checked) {
                             if (elemColor == selectedColor[0].value)
                                 condColor = true;
                         }
-                        if(selectedColor[1].checked) {
+                        if (selectedColor[1].checked) {
                             if (elemColor == selectedColor[1].value)
                                 condColor = true;
                         }
-                        if(selectedColor[2].checked) {
+                        if (selectedColor[2].checked) {
                             if (elemColor == selectedColor[2].value) {
                                 condColor = true;
                             }
                         }
-                        if(!selectedColor[0].checked && !selectedColor[1].checked && !selectedColor[2].checked)
+                        if (!selectedColor[0].checked && !selectedColor[1].checked && !selectedColor[2].checked)
                             condColor = true;
 
                         var selectedMaterial = document.querySelector('select[id=material-filtru]').selectedOptions[0].value;
                         var condMaterial = true;
-                        if(selectedMaterial === 'Nimic')
+                        if (selectedMaterial === 'Nimic')
                             condMaterial = true;
                         else {
-                            condMaterial = elem.getElementsByClassName('material')[0].getElementsByTagName('a')[0].innerHTML.toLowerCase().indexOf(selectedMaterial.toLowerCase()) !== -1;
+                            if (elem.getElementsByClassName('material')[0].getElementsByTagName('a')[0].innerHTML.toLowerCase().indexOf(selectedMaterial.toLowerCase()) !== -1)
+                                condMaterial = true;
+                            else
+                                condMaterial = false;
                         }
 
                         // var noutatiCheck = document.getElementById('noutati').value;
@@ -134,7 +137,7 @@
                         // var d2 = new Date();
                         // var condCheck = noutatiCheck && (d1 < elemDate);
 
-                        if (condPret && condNume && condDesc && condColor) {
+                        if (condPret && condNume && condDesc && condColor && condMaterial) {
                             elem.style.display = "flex";
                         }
                     }
@@ -171,7 +174,8 @@
                 calcBtn.onclick = function () {
                     var suma = 0;
                     for (let elem of articole) {
-                        suma += Math.floor(elem.getElementsByClassName('pret')[0].getElementsByTagName('a')[0].innerText)
+                        if (elem.style.display !== 'none')
+                            suma += Math.floor(elem.getElementsByClassName('pret')[0].getElementsByTagName('a')[0].innerText)
                     }
 
                     var display = document.getElementById('pop-up');
