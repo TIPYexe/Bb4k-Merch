@@ -1,1 +1,30 @@
-<a class="link-top" href="#" title="hai sus"><div class="patrat"><div><div class="sageata"></div></div></div></a>
+<a class="link-top" href="#" title="hai sus">
+    <div class="patrat">
+        <div>
+            <div class="sageata"></div>
+        </div>
+    </div>
+</a>
+
+<script>
+    window.onload = function () {
+        <% if(locals.utilizator) { %>
+        var link = document.getElementById(`theme`);
+        link.setAttribute('href', `/resources/style-<%=locals.utilizator.culoare_chat%>.css`);
+        <% } %>
+    }
+
+    function changeTheme() {
+        var temaNoua = document.querySelector('select[id=theme-select]').value;
+        var link = document.getElementById(`theme`);
+        link.setAttribute('href', `/resources/style-${temaNoua}.css`);
+    }
+</script>
+
+<div>
+    <select onchange="changeTheme()" id="theme-select" style="position: fixed; top: 10vh; left: 10vw">
+        <option value="light">light</option>
+        <option value="dark">dark</option>
+        <option value="contrast">contrast</option>
+    </select>
+</div>

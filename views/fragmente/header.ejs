@@ -1,5 +1,5 @@
 <header class="header">
-    <a href="../"><img src="media/LOGO_Original_4.png" alt="Bb4k-logo"></a>
+    <a href="/home"><img src="../media/LOGO_Original_4.png" alt="Bb4k-logo"></a>
     <nav>
         <!--                <div>-->
         <input class="menu-btn" type="checkbox" id="menu-btn"/>
@@ -19,6 +19,31 @@
             </li>
             <li class="btn-impar"><a href="despre-noi">Despre noi</a></li>
             <li class="btn-par"><a href="FAQ-index">Intrebari frecvente</a></li>
+            <% if(!locals.utilizator){%>
+            <li class="btn-impar"><a href="inregistrare">Inregistrare</a></li>
+            <li class="login">
+                <form id="login" method="post" action="/login">
+                    <label>User:<input type="text" name="username" value="Costica" ></label>
+                    <label>Parola:<input type="password" name="parola" value=""></label>
+                    <input type="submit" value="login">
+                </form>
+            </li>
+            <% } else { %>
+                <li><a href="/profil" id="tab-user">Utilizator <%- locals.utilizator.username %></a></li>
+                <li><a href="/logout">Logout</a></li>
+
+                <% if (locals.utilizator && locals.utilizator.rol === "admin") { %>
+                    <li><a href="/useri">Utilizatori</a></li>
+                <% } %>
+            <li><a href="/cos-virtual">Cos virtual</a></li>
+            <% } %>
+            <li><a href="/contact">Contact</a></li>
+            <li class="btn-par"><a href="">Acte legale</a>
+                <ul class="dropdown">
+                    <li class="btn-par"><a href="/terms">Termeni si conditii</a></li>
+                    <li class="btn-par"><a href="/gdpr">GDPR</a></li>
+                </ul>
+            </li>
         </ul>
 
     </nav>

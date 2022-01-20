@@ -89,12 +89,12 @@
                         var selectedPret = document.getElementById('pret').value;
                         var condPret = Math.floor(elem.getElementsByClassName('pret')[0].getElementsByTagName('a')[0].innerText) <= selectedPret;
 
-                        var prodCautat = document.getElementById('nume-prod').value;
+                        var prodCautat = document.getElementById('nume-prod').value.replace('>', '&gt;').replace('<', '&lt');
                         var numeElem = elem.getElementsByClassName('nume')[0].getElementsByTagName('a')[0];
                         var condNume = numeElem.innerHTML.toLowerCase().startsWith(prodCautat.toLowerCase());
 
                         var descSearch = document.getElementById('desc-search');
-                        var descElem = elem.getElementsByClassName('desc')[0].getElementsByTagName('a')[0].innerHTML.toLowerCase();
+                        var descElem = elem.getElementsByClassName('desc')[0].getElementsByTagName('a')[0].innerHTML.toLowerCase().replace('>', '&gt;').replace('<', '&lt');
                         var condDesc = true;
                         if (descSearch) {
                             descSearch = descSearch.value.toLowerCase();
@@ -251,10 +251,10 @@
                 %>
                     <article class="produs">
 
-                        <h3 class="nume"><a href="/produse/<%- prod.id %>"><%- prod.nume %></a></h3>
+                        <h3 class="nume"><a href="/produs/<%- prod.id %>"><%- prod.nume %></a></h3>
                         <div class="produs-colums">
                             <div class="column">
-                                <img id='img-prod' src="../../media/produse/<%- prod.image %>">
+                                <a href="/produs/<%- prod.id %>"><img id='img-prod' src="../../media/produse/<%- prod.image %>"></a>
                                 <span class="pret"><b>Pret: </b><a><%- prod.pret %></a>lei</span>
                                 <span class="material"><b>Material: </b><a><%- prod.material %></a></span>
                                 <span class="medii"><b>Medii utilizare: </b><a><%- prod.medii_utilizare %></a></span>
@@ -266,6 +266,7 @@
                                 <span class="categ"><b>Categorie: </b><a><%- prod.categorie %></a></span>
                                 <span class="desc"><b>Descriere: </b><a><%- prod.descriere %></a></span>
                                 <span class="culoare"><b>Culoare: </b><a><%- prod.culoare %></a></span>
+
                             </div>
                         </div>
 

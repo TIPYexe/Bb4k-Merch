@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta name="description"
+          content="Bb4k va livreaza cele mai calitative si cool haine de merch.">
+    <meta name="keywords" content="hanorace, caciuli, papuci">
+
+    <title>Bb4k Merch</title>
+    <%- include("../fragmente/head") %>
+    <link href="/resources/produs.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<div class="container">
+
+    <%- include("../fragmente/back-to-top-button.ejs") %>
+
+    <div class="page-padding">
+
+        <%- include("../fragmente/header.ejs") %>
+        <main style="margin-top: 20%">
+            <section>
+                <h2>Pagină produs</h2>
+                <article id="art-produs">
+                    <h3><span class="nume"><%- locals.prod.nume %></span></h3>
+                    <p>Pret: <span class="pret"><%- locals.prod.pret %> </span></p>
+                    <p>Descriere: <span class="desc"><%- locals.prod.descriere %> </span></p>
+                    <p>Material: <span class="material"><%- locals.prod.material %> </span></p>
+                    <p>Medii: <span class="medii"><%- locals.prod.medii_utilizare %> </span></p>
+                    <p>Categorie: <span class="categ"><%- locals.prod.categorie %> </span></p>
+                    <p>Culoare: <span class="pt_diabetici"><%- locals.prod.culoare %> </span></p>
+                    <p>Data adăugare: <span class="categorie"><%- locals.prod.lansare_produs %> </span></p>
+                    <figure class="imag-produs">
+                        <img src="/media/produse/<%- locals.prod.image %>"
+                             alt="[imagine <%- locals.prod.nume %>]"/>
+                    </figure>
+
+                    <form method="post" action="/produs_review/<%- locals.prod.id %>">
+                        <label>Mesajul dumneavoastră:<br/>
+                            <textarea cols="30" rows="5" name="mesaj" placeholder="Scrieți tot ce aveți pe suflet!"></textarea>
+                        </label><br/>
+                        <input type="submit" value="Trimite mesajul!">
+                    </form>
+                    <section>
+                        <h2>Mesaje:</h2>
+                        <% if (locals.mesaje) {
+                            var mesajeSort = locals.mesaje.sort(function (a, b) {
+                                return (new Date(b.attributes.data)).getTime() - (new Date(a.attributes.data)).getTime()
+                            })
+                                for (let msg of mesajeSort) {
+                            let dt = new Date(msg.attributes.data);
+                        %>
+                        <article class="mesaj-c">
+                            <h3><span class="username"><%= msg.attributes.username %></span> spune:</h3>
+                            <p><%= msg.elements[0].text %></p>
+                            <p><small>
+                                    <time datetime="<%= dt.getUTCDate() %>"><%= dt.toLocaleString('ro-RO', {
+                                            weekday: 'long',
+                                            day: 'numeric',
+                                            year: 'numeric',
+                                            month: 'long',
+                                            hour: 'numeric',
+                                            minute: 'numeric',
+                                            second: 'numeric',
+                                        }) %></time>
+                                </small>
+                            </p>
+                        </article>
+                        <% } %>
+                        <% } %>
+                    </section>
+
+                </article>
+
+            </section>
+        </main>
+
+        <%- include("../fragmente/footer") %>
+    </div>
+</div>
+</body>
+</html>

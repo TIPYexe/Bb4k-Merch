@@ -22,146 +22,254 @@
             <img id="poza-prezentare" src="media/grup_best.jpg" alt="poza-prezentare">
         </div>
 
-        <div class="content">
-            <section class="about-us">
-                <h1>Despre noi</h1>
-                <p>Ip: <%- locals.ip %></p>
-                <p>
-                    Suntem o adunatura de <b>18 barbati</b>, toti parte din clasa 12C, cunoscuta si sub numele de
-                    12Ciucas. Ne plac
-                    iesirile cu cortul, pentru ca ne lasa sa ne manifestam barbatia spargand lemne, facand glume
-                    misogine
-                    si band iresponsabil fara sa fim judecati. Deci daca nu ai fost coleg de clasa cu noi in liceu n-ai
-                    cum sa mai intrii in grup.
-                </p>
-                <p>
-                    Noi ca baieti eram oricum destul de uniti, insa nu aveam si un nume. Grupul a luat nastere in clasa
-                    a
-                    12-a cand am vrut sa ne organizam sa luam martisoare la comun fetelor din clasa, pentru ca in loc de
-                    100
-                    de martisoare mediocre mai bine o ciocolata, o floare si un martisor "din partea baietilor". Insa
-                    numele
-                    de <b>Bb4k</b> a aparut mai tarziu.
-                </p>
-                <p>
-                    Infintarea grupului de Whatsapp reprezinta si ziua grupului, <strong>22 feb</strong>, si in fiecare
-                    an incercam sa marcam
-                    momentul facand diverse: <s>la 1 an</s> am luat un tort in forma de sani, si am iesit la o terasa
-                    imbracati elegent,
-                    oximoron; la 2 ani am plecat pe munte, am incercat sa urcam pe Vf. Ciucas in mod simbolic, insa nu
-                    am reusit...
-                    vremea a fost foarte agresiva la inaltime, iar noi nu am fost echipati pe masura; iar anul viitor,
-                    la
-                    aniversarea de 4 ani mergem in Amsterdam cu scopul de a ne intoarce desfigurati. Follow for more!
-                </p>
+        <% if(locals.utilizator && locals.utilizator.problema_vedere) { %>
+        <div class="content" style="font-size: 2em">
+            <% } else { %>
+            <div class="content">
+                <% } %>
 
-                <!--                TODO: iframe pentru media asta-->
-                <div class="about-videos" style="display: flex">
-                    <blockquote class="instagram-media"
-                                data-instgrm-permalink="https://www.instagram.com/p/CENGOu_HTYu/">
-                    </blockquote>
+                <section class="about-us">
+                    <h1>Despre noi</h1>
+                    <p>Ip: <%- locals.ip %></p>
+                    <p>
+                        Suntem o adunatura de <b>18 barbati</b>, toti parte din clasa 12C, cunoscuta si sub numele de
+                        12Ciucas. Ne plac
+                        iesirile cu cortul, pentru ca ne lasa sa ne manifestam barbatia spargand lemne, facand glume
+                        misogine
+                        si band iresponsabil fara sa fim judecati. Deci daca nu ai fost coleg de clasa cu noi in liceu
+                        n-ai
+                        cum sa mai intrii in grup.
+                    </p>
+                    <p>
+                        Noi ca baieti eram oricum destul de uniti, insa nu aveam si un nume. Grupul a luat nastere in
+                        clasa
+                        a
+                        12-a cand am vrut sa ne organizam sa luam martisoare la comun fetelor din clasa, pentru ca in
+                        loc de
+                        100
+                        de martisoare mediocre mai bine o ciocolata, o floare si un martisor "din partea baietilor".
+                        Insa
+                        numele
+                        de <b>Bb4k</b> a aparut mai tarziu.
+                    </p>
+                    <p>
+                        Infintarea grupului de Whatsapp reprezinta si ziua grupului, <strong>22 feb</strong>, si in
+                        fiecare
+                        an incercam sa marcam
+                        momentul facand diverse: <s>la 1 an</s> am luat un tort in forma de sani, si am iesit la o
+                        terasa
+                        imbracati elegent,
+                        oximoron; la 2 ani am plecat pe munte, am incercat sa urcam pe Vf. Ciucas in mod simbolic, insa
+                        nu
+                        am reusit...
+                        vremea a fost foarte agresiva la inaltime, iar noi nu am fost echipati pe masura; iar anul
+                        viitor,
+                        la
+                        aniversarea de 4 ani mergem in Amsterdam cu scopul de a ne intoarce desfigurati. Follow for
+                        more!
+                    </p>
 
-                    <blockquote class="instagram-media"
-                                data-instgrm-permalink="https://www.instagram.com/p/CVqgACZhPws/">
-                    </blockquote>
+                    <!--                TODO: iframe pentru media asta-->
+                    <div class="about-videos" style="display: flex">
+                        <blockquote class="instagram-media"
+                                    data-instgrm-permalink="https://www.instagram.com/p/CENGOu_HTYu/">
+                        </blockquote>
 
-                    <blockquote class="instagram-media"
-                                data-instgrm-permalink="https://www.instagram.com/p/B3fH4H1hnRN/">
-                    </blockquote>
-                    <script async src="//www.instagram.com/embed.js"></script>
-                </div>
+                        <blockquote class="instagram-media"
+                                    data-instgrm-permalink="https://www.instagram.com/p/CVqgACZhPws/">
+                        </blockquote>
 
-                <section class="social-media">
-                    <h2>Social Media</h2>
-                    <a href="https://www.instagram.com/_bb4k_/" target="_blank"><img src="media/instagram.png"
-                                                                                     alt="instagram-logo"></a>
+                        <blockquote class="instagram-media"
+                                    data-instgrm-permalink="https://www.instagram.com/p/B3fH4H1hnRN/">
+                        </blockquote>
+                        <script async src="//www.instagram.com/embed.js"></script>
+                    </div>
+
+                    <section class="social-media">
+                        <h2>Social Media</h2>
+                        <a href="https://www.instagram.com/_bb4k_/" target="_blank"><img src="media/instagram.png"
+                                                                                         alt="instagram-logo"></a>
+                    </section>
+
                 </section>
 
-            </section>
+                <img id="calendar" src="media/calendar-placeholder.png" alt="calendar-evenimente">
 
-            <img id="calendar" src="media/calendar-placeholder.png" alt="calendar-evenimente">
+                <div class="table-container">
+                    <table>
+                        <thead>
+                        <tr>
+                            <th colspan="4">Date membrii random</th>
+                        </tr>
+                        <tr>
+                            <th>Nume</th>
+                            <th>Prenume</th>
+                            <th>Post</th>
+                            <th>Activ</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>Nicolescu</td>
+                            <td>Robert</td>
+                            <td>Organizator</td>
+                            <td>Da</td>
+                        </tr>
+                        <tr>
+                            <td>Balmau</td>
+                            <td>Dragos</td>
+                            <td>Camera-man</td>
+                            <td>Da</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
 
-            <div class="table-container">
-            <table>
-                <thead>
-                <tr>
-                    <th colspan="4">Date membrii random</th>
-                </tr>
-                <tr>
-                    <th>Nume</th>
-                    <th>Prenume</th>
-                    <th>Post</th>
-                    <th>Activ</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>Nicolescu</td>
-                    <td>Robert</td>
-                    <td>Organizator</td>
-                    <td>Da</td>
-                </tr>
-                <tr>
-                    <td>Balmau</td>
-                    <td>Dragos</td>
-                    <td>Camera-man</td>
-                    <td>Da</td>
-                </tr>
-                </tbody>
-            </table>
+                <!--                <img id="anunturi" src="media/anunt-placeholder.png" alt="anunturi">-->
+
+                <div id="anunturi" class="fg-img">
+                    <h2>Calendar</h2>
+                    <p>Observatie: afiseaza doar luna curentă (evenimentele sunt random)</p>
+                    <div id="calendar">
+                        <div>L</div>
+                        <div>Ma</div>
+                        <div>Mi</div>
+                        <div>J</div>
+                        <div>V</div>
+                        <div>S</div>
+                        <div>D</div>
+                        <%
+                        nrZile = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+                        d = new Date(); //observatie: este data serverului nu a clinetului; codul ejs fiind compilat pe server
+                        anCurent = d.getFullYear();
+                        lunaCurenta = d.getMonth();
+                        if (anCurent % 400 === 0 || (anCurent % 4 === 0 && anCurent % 100 !== 0)) nrZile = 29;
+                        let nrZileCalendar = nrZile[lunaCurenta]
+                        primaZiLuna = new Date(anCurent, lunaCurenta, 1);
+                        ultimaZiLuna = new Date(anCurent, lunaCurenta, nrZileCalendar);
+                        ziSaptPrimaZiLuna = (primaZiLuna.getDay() - 1 + 7) % 7;
+                        ziSaptUltimaZiLuna = (ultimaZiLuna.getDay() - 1 + 7) % 7;
+                        for (let i = 0;i < ziSaptPrimaZiLuna;i++){
+                        %>
+                            <div></div>
+                        <% }
+
+
+                        for (let i = 1;i <= nrZileCalendar;i++){
+                            var obiectEvenimente = null;
+                            if (locals.evenimente)
+                                obiectEvenimente = locals.evenimente.find(function (elem) {
+                                    if(typeof(elem.data) === 'number')
+                                        return elem.data === i;
+                                    return elem.data.valueOf() === new Date(anCurent, lunaCurenta, i).valueOf()
+                                })
+                        if(obiectEvenimente)
+                        {
+                        %>
+                            <div class="zi eveniment" title="<%= obiectEvenimente.text %>"><%= i %></div>
+                        <%
+                        }
+                        else{
+                        %>
+                            <div class="zi"><%= i %></div>
+                        <% }
+                        } %>
+                    </div>
+                    <%
+                    dataServer = new Date();
+                    sirData = dataServer.getHours() + ":" + dataServer.getMinutes() + ":" + dataServer.getSeconds()
+                    %>
+                    <p>Ora server:<span id="data_server"><%= sirData %></span></p>
+                    <p>Ora client:<span id="data_client"></span></p>
+                    <script>
+                        function zero(nr) {
+                            if (nr < 10) return "0" + nr;
+                            return nr;
+                        }
+
+                        d = new Date()
+                        document.getElementById("data_client").innerHTML = zero(d.getHours()) + ":" + zero(d.getMinutes()) + ":" + zero(d.getSeconds());
+
+                        function actualizeazaElemData(id_div) {
+                            var data_div = document.getElementById(id_div);
+                            if (data_div.innerHTML != "") {
+                                var timp = data_div.innerHTML.split(":")
+                                var dt = new Date(2000, 1, 15, timp[0], timp[1], timp[2]);//nu conteaza data (am pus valori random pentru an, luna si zi) ci timpul
+                            } else
+                                var dt = new Date();
+                            dt.setSeconds(dt.getSeconds() + 1)
+                            data_div.innerHTML = zero(dt.getHours()) + ":" + zero(dt.getMinutes()) + ":" + zero(dt.getSeconds());
+                        }
+
+                        function actualizeazaData() {
+                            actualizeazaElemData("data_client");
+                            actualizeazaElemData("data_server");
+                        }
+
+                        actualizeazaData()
+                        setInterval(actualizeazaData, 1000)
+                    </script>
+                </div>
+
+                <section id="faq-section">
+                    <h2>Intrebari Frecvente</h2>
+                    <ul>
+                        <li><h3>De la ce vine Bb4k?</h3>
+                            <p>Acesta este un secret de stat si trebuie tratat ca atare.</p>
+                        </li>
+                        <li><h3>Pe ce data e ziua Bb4k?</h3>
+                            <p>22 feb 2018.</p>
+                        <li><h3>Ce trebuie sa fac pentru a intra in grup?</h3>
+                            <p>Sa fi fost coleg de clasa cu noi in liceu, sau sa fii extrem de apropiat de majoritatea
+                                baietilor din grup
+                                si totodata mai implicat decat multi dintre noi. Exemplu: Lazar, membru proaspat, era
+                                mai
+                                hotarat/entuziasmat de plecarea in Amsterdam decat jumatate dintre membri.</p>
+                        <li><h3>Chiar livrati produsele, daca le comandam?</h3>
+                            <p>Chiar da. In general am incerca sa strangem sa facem o comanda bulk, pentru a scuti
+                                transportul,
+                                dar site-ul chiar este functional.</p>
+                    </ul>
+                </section>
+
             </div>
 
-            <img id="anunturi" src="media/anunt-placeholder.png" alt="anunturi">
-
-            <section id="faq-section">
-                <h2>Intrebari Frecvente</h2>
-                <ul>
-                    <li><h3>De la ce vine Bb4k?</h3>
-                        <p>Acesta este un secret de stat si trebuie tratat ca atare.</p>
-                    </li>
-                    <li><h3>Pe ce data e ziua Bb4k?</h3>
-                        <p>22 feb 2018.</p>
-                    <li><h3>Ce trebuie sa fac pentru a intra in grup?</h3>
-                        <p>Sa fi fost coleg de clasa cu noi in liceu, sau sa fii extrem de apropiat de majoritatea
-                            baietilor din grup
-                            si totodata mai implicat decat multi dintre noi. Exemplu: Lazar, membru proaspat, era
-                            mai
-                            hotarat/entuziasmat de plecarea in Amsterdam decat jumatate dintre membri.</p>
-                    <li><h3>Chiar livrati produsele, daca le comandam?</h3>
-                        <p>Chiar da. In general am incerca sa strangem sa facem o comanda bulk, pentru a scuti
-                            transportul,
-                            dar site-ul chiar este functional.</p>
-                </ul>
-            </section>
-
-        </div>
-
-        <div class="server-status">
-
-        </div>
-        <div class="users-online">
-
-        </div>
-        <div class="user-data">
-
-        </div>
-
-        <div class="iframe-container">
-            <iframe name="ifr-video"
-                    src="https://www.youtube.com/embed/PVreNsLHWig"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen>
-            </iframe>
-            <div class="iframe-tabs">
-                <a href="https://www.youtube.com/embed/PVreNsLHWig" target="ifr-video">Clip 1</a>
-                <a href="https://www.youtube.com/embed/7EBxAtX72TQ" target="ifr-video">Clip 2</a>
+            <div class="server-status">
+                <p><b>UP</b></p>
             </div>
+
+            <div class="users-online">
+                <p><b>Utilizatori online</b> (în ultimele 5 minute):
+                    <% for (let i = 0;i < locals.utiliz_online.length; i++) { %>
+                <p>
+                    <%= i+1 %> | <%= locals.utiliz_online[i].username %>
+                    - <%- locals.utiliz_online[i].nume %> <%- locals.utiliz_online[i].prenume %>
+                <p>
+                    <% } %>
+                </p>
+            </div>
+
+            <div class="user-data">
+                <p><b>Locatie:</b> <%= locals.locatie %></p>
+            </div>
+
+            <div class="iframe-container">
+                <iframe name="ifr-video"
+                        src="https://www.youtube.com/embed/PVreNsLHWig"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen>
+                </iframe>
+                <div class="iframe-tabs">
+                    <a href="https://www.youtube.com/embed/PVreNsLHWig" target="ifr-video">Clip 1</a>
+                    <a href="https://www.youtube.com/embed/7EBxAtX72TQ" target="ifr-video">Clip 2</a>
+                </div>
+            </div>
+
+            <%- include("../fragmente/footer.ejs") %>
+
         </div>
-
-        <%- include("../fragmente/footer.ejs") %>
-
     </div>
-</div>
 
 </body>
 </html>

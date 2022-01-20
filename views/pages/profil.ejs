@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <title>Profil</title>
+    <%- include("../fragmente/head") %>
+
+    <!--		<link rel="stylesheet" type="text/css" href="/resurse/css/contact.css" />-->
+    <script>
+
+        // populez inputurile din pagina de profil cu datele din tabel (incarcate prin EJS)
+        window.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("inp-username").value = "<%= locals.utilizator.username %>";
+            document.getElementById("inp-username").readOnly = true;
+            document.getElementById("inp-nume").value = "<%= locals.utilizator.nume %>";
+            document.getElementById("inp-prenume").value = "<%= locals.utilizator.prenume %>";
+            document.getElementById("inp-email").value = "<%= locals.utilizator.email %>";
+            document.getElementById("p-reintrod").remove();
+            var optiuni = document.getElementById("sel-culoare").options
+            for (let opt of optiuni)
+                if (opt.value === "<%= locals.utilizator.culoare_chat %>")
+                    opt.selected = true;
+            <% if(locals.utilizator.problema_vedere) { %>
+            document.getElementsByName('problema_vedere')[0].checked = true;
+            <% } %>
+        });
+    </script>
+</head>
+<div class="container">
+
+    <%- include("../fragmente/back-to-top-button.ejs") %>
+
+    <div class="page-padding">
+        <%- include("../fragmente/header.ejs") %>
+
+        <main style="margin-top: 30%">
+            <section>
+                <h2>Profil</h2>
+                <p>Urmeaza sa-ti cumperi cele mai cool haine!</p>
+                <p><%= locals.mesaj %></p>
+            </section>
+            <%- include("../fragmente/formular",{action:"/profil"}) %>
+
+            <%- include("../fragmente/footer") %>
+        </main>
+    </div>
+</div>
+
+</body>
+</html>

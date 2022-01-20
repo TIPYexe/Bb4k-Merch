@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta name="description" content="Bb4k Merch - utilizatori.">
+    <meta name="keywords" content="utilizatori, admin">
+<!--    <link rel="stylesheet" href="/resurse/css/useri.css" type="text/css"/>-->
+    <title>Bb4k Merch - utilizatori</title>
+    <%- include("../fragmente/head") %>
+    <script type="text/javascript" src=/resources/js/produse.js></script>
+</head>
+<div class="container">
+
+    <%- include("../fragmente/back-to-top-button.ejs") %>
+
+    <div class="page-padding">
+        <%- include("../fragmente/header.ejs") %>
+        <main style="margin-top: 30%">
+            <div class="afisaj">
+                <h2>Useri</h2>
+
+                <table id="useri">
+                    <tr>
+                        <th>id</th>
+                        <th>Username</th>
+                        <th>Poza</th>
+                        <th>Nume</th>
+                        <th>Prenume</th>
+                        <th>Data</th>
+                        <th>Rol</th>
+                    </tr>
+
+                    <% for (var i = 0; i < useri.length; i++) {
+                    if(useri[i].rol === "comun"){
+                    %>
+                        <tr>
+                            <td><%= useri[i].id %></td>
+                            <td><%= useri[i].username %></td>
+                            <% if(useri[i].cale_imagine) { %>
+                            <td><img src="../media/poze_utilizatori/<%= useri[i].username %>/poza.png" alt="poza-profil" style="height: 100px"></td>
+                            <% } else { %>
+                                <td><img src="../media/poze_utilizatori/default.png" alt="poza-profil" style="height: 100px"></td>
+                            <% }%>
+                            <td><%= useri[i].nume %></td>
+                            <td><%= useri[i].email %></td>
+                            <%
+                                d = new Date(useri[i].data_adaugare)
+                                sir_data = `${d.getDate()}/${d.getMonth()}/${d.getFullYear()} ${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`
+                            %>
+                            <td><%= sir_data %></td>
+                            <td><%= useri[i].rol %></td>
+                        </tr>
+
+                    <% } %>
+                    <% } %>
+                </table>
+
+                <p>Sterge poza utilizatorului</p>
+                <form id="sterge" method="post" action="/sterge_poza">
+                    <label>
+                        Id: <input type="text" name="id_utiliz" value="">
+                    </label>
+
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+        </main>
+    </div>
+</div>
+</main>
+
+
+<%- include("../fragmente/footer") %>
+
+</body>
+</html>

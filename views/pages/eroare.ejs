@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <title>Eroare</title>
+    <%- include("../fragmente/head") %>
+</head>
+<div class="container">
+
+    <%- include("../fragmente/back-to-top-button.ejs") %>
+
+    <div class="page-padding">
+        <%- include("../fragmente/header.ejs") %>
+        <main style="margin-top: 30%">
+
+            <h1>Eroare</h1>
+            <p><%= locals.mesaj %></p>
+        </main>
+
+        <%- include("../fragmente/footer") %>
+    </div>
+</div>
+</html>
