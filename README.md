@@ -1,8 +1,5 @@
 # Bb4k-Merch
 
-# RTuning
-TODO: semnificatie strong, b etc
-
 Proiectul meu pentru optionalul de TehniciWeb.
 
 #Etapa 1
